@@ -35,5 +35,9 @@
     According to the following information, there does seem to be enough retirement-ready employees in the departments to mentor the next generation, depending on the ratio of mentor to mentee that the company would prefer. I created a series of tables, resulting in a final table "not_retiring_titles" to get the number of employees that are not retirement eligible and compared those numbers to the amount of employees that are eligible to become mentors. I got the number of mentors by creating the table "mentorship_eligibilty_count". 
     
     The departments with the highest mentee to mentor ratio are Senior Engineering at 15,782 mentors and 68,329 mentees and Senior Staff with 16,405 mentors and 64,589 mentees. Almost all other departments have a closer ratio of 50 percent, beside Technique Leader, which is closer to a 30 percent ratio of mentees to mentors.
+    
+## Resources
+
+  The aforemented tables in the summary are available as csv files in the "Data" folder.  The queries for the tables are available in the "Queries" folder, at the bottom of the "Employee_Database_challenge" file.
       
         
