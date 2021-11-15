@@ -61,3 +61,39 @@ ORDER BY e.emp_no ASC;
 
 -- Check table
 SELECT * FROM mentorship_eligibilty
+
+
+---------- For Summary ----------
+
+-- Create table with total employees not eligible for retirement		
+SELECT e.emp_no,
+    e.first_name,
+e.last_name,
+   ti.title,
+   ti.from_date,
+   ti.to_date
+INTO not_retiring
+FROM employees as e
+LEFT JOIN titles as ti
+ON (e.emp_no = ti.emp_no)
+WHERE (e.birth_date BETWEEN '1956-01-01' AND '9999-01-01')
+ORDER BY e.emp_no;
+
+SELECT DISTINCT ON (nr.emp_no)
+nr.emp_no,
+    nr.first_name,
+nr.last_name,
+   nr.title
+INTO no_retiring_unique_titles
+FROM not_retiring as nr
+ORDER BY nr.emp_no ASC, nr.to_date DESC;
+
+
+-- Create table with counts per title for all employees
+SELECT title, COUNT (title)
+INTO not_retiring_titles
+FROM no_retiring_unique_titles as nor
+GROUP BY nor.title 
+ORDER BY count DESC
+
+SELECT * FROM not_retiring_titles
