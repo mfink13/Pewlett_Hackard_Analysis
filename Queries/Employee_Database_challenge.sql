@@ -10,7 +10,7 @@ FROM employees as e
 LEFT JOIN titles as ti
 ON (e.emp_no = ti.emp_no)
 WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')
-ORDER BY e.emp_no;
+ORDER BY e.emp_no
 
 -- Check table --
 SELECT * FROM retirement_titles
@@ -33,7 +33,7 @@ SELECT title, COUNT (title)
 INTO retiring_titles
 FROM unique_titles as ut
 GROUP BY ut.title 
-ORDER BY count DESC;
+ORDER BY count DESC
 
 -- Check table
 SELECT * FROM retiring_titles
@@ -62,6 +62,13 @@ ORDER BY e.emp_no ASC;
 -- Check table
 SELECT * FROM mentorship_eligibilty
 
+SELECT title, COUNT (title)
+INTO mentorship_eligibilty_count
+FROM mentorship_eligibilty as me
+GROUP BY me.title 
+ORDER BY count DESC
+
+SELECT * FROM mentorship_eligibilty_count
 
 ---------- For Summary ----------
 
